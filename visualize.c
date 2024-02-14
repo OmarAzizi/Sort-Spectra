@@ -1,0 +1,136 @@
+#include "sort.h"
+
+int main() {
+    int arr[ARRAY_MAX_SIZE];
+    SDL_Window* window;
+    SDL_Renderer* renderer;
+    
+    if (SDL_INIT_VIDEO < 0) {
+        fprintf(stderr, "ERROR: SDL_INIT_VIDEO\n");
+        exit(1);
+    }
+
+    window = SDL_CreateWindow (
+                "Sorting",
+                SDL_WINDOWPOS_CENTERED,
+                SDL_WINDOWPOS_CENTERED,
+                WINDOW_WIDTH,
+                WINDOW_HEIGHT,
+                SDL_WINDOW_BORDERLESS
+             );
+    
+    if (!window) {
+        fprintf(stderr, "ERROR: SDL_CreateWindow\n");
+        exit(1);
+    }
+
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    if (!renderer) {
+        fprintf(stderr, "ERROR: SDL_CreateRenderer\n");
+        exit(1);
+    }
+
+    init_array(arr);
+    shuffle_array(arr);
+        
+    SDL_RenderClear(renderer);
+    
+    radixSort(renderer, arr);
+    visualize_final(renderer, arr);
+
+    SDL_Delay(1000);
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    SDL_Quit();
+
+    return 0;
+}
+
+
+// Makes a sorted array
+void init_array(int arr[]) {
+    for (size_t i = 0; i <= ARRAY_MAX_SIZE; ++i)
+        arr[i] = (i + 1);
+    return;
+}
+
+// Shuffles a sorted array
+void shuffle_array(int arr[]) {
+    srand(time(0));
+    int randIdx;
+
+    for (size_t i = 0; i < ARRAY_MAX_SIZE; ++i) {
+        randIdx = (rand() % ARRAY_MAX_SIZE + 1);
+        swap(&arr[i], &arr[randIdx]);
+    }
+    return;
+}
+
+void visualize_array(SDL_Renderer* renderer, int arr[], int red, int blue) {
+    SDL_Rect rectangle;
+    int max_value = ARRAY_MAX_SIZE;
+
+    // Calculate the scale factor to fit the maximum value within the window height
+    float scale_factor = (float)WINDOW_HEIGHT / max_value;
+
+    // Calculate the width of each rectangle
+    rectangle.w = (float)WINDOW_WIDTH / ARRAY_MAX_SIZE;
+    
+    SDL_RenderClear(renderer);
+    for (size_t i = 0; i < ARRAY_MAX_SIZE; ++i) {
+        // Scale the height of the rectangle
+        rectangle.h = arr[i] * scale_factor;
+
+        // Set the position of the rectangle
+        rectangle.x = i * rectangle.w;
+        rectangle.y = WINDOW_HEIGHT - rectangle.h; // Start from the bottom of the window
+        
+        // Draw rectangle
+        if (red == i) SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+        else if (blue == i) SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
+        else SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+
+        SDL_RenderFillRect(renderer, &rectangle);
+        // Draw rectangle border
+        SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+        SDL_RenderDrawRect(renderer, &rectangle);
+    }
+    SDL_RenderPresent(renderer);
+}
+
+void visualize_final(SDL_Renderer* renderer, int arr[]) {
+    SDL_Rect rectangle;
+    int max_value = ARRAY_MAX_SIZE;
+
+    // Calculate the scale factor to fit the maximum value within the window height
+    float scale_factor = (float)WINDOW_HEIGHT / max_value;
+
+    // Calculate the width of each rectangle
+    rectangle.w = (float)WINDOW_WIDTH / ARRAY_MAX_SIZE;
+    
+    for (size_t i = 0; i < ARRAY_MAX_SIZE; ++i) {
+        // Scale the height of the rectangle
+        rectangle.h = arr[i] * scale_factor;
+
+        // Set the position of the rectangle
+        rectangle.x = i * rectangle.w;
+        rectangle.y = WINDOW_HEIGHT - rectangle.h; // Start from the bottom of the window
+        
+        // Draw rectangle
+        SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+        SDL_RenderFillRect(renderer, &rectangle);
+
+        // Draw rectangle border
+        SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+        SDL_RenderDrawRect(renderer, &rectangle);
+
+        SDL_Delay(3);
+        SDL_RenderPresent(renderer);
+    }
+}
+
+void swap(int* a, int* b) {
+    int tmp = *b;
+    *b = *a;
+    *a = tmp;
+}
