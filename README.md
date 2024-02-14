@@ -16,3 +16,14 @@ https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/e97c2064-e6fc-4b96-aa
 
 https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/88ec5652-13a9-4900-9dea-17728c898370
 
+## Usage
+Clone the repository
+```bash
+git clone https://github.com/OmarAzizi/Sort-Spectra.git && cd Sort-Spectra
+```
+
+Then build the program from Makefile and run it
+```bash
+make build && ./final
+```
+
