@@ -32,9 +32,20 @@ int main() {
 
     init_array(arr);
     shuffle_array(arr);
-        
-    SDL_RenderClear(renderer);
-    
+
+    visualize_array(renderer, arr, -1, -1); 
+
+    SDL_Event event;
+    bool isStart = false;
+    while (!isStart) {
+        SDL_PollEvent(&event);
+        switch (event.type) {
+            case SDL_KEYDOWN:
+                isStart = true;
+                break;
+        }
+    }
+
     heapSort(renderer, arr);
     visualize_array(renderer, arr, -1, -1);
     visualize_final(renderer, arr);
