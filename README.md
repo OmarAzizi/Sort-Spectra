@@ -2,7 +2,7 @@
 In order to complete this project I used the [SDL](https://www.libsdl.org/) library with C.
 
 ## Demo 
-This is a demo for some algorithms sorting 600 elements.
+This is a demo for some algorithms sorting an array of 600 shuffled elements.
 
 ### Merge Sort
 
