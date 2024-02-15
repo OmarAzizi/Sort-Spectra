@@ -27,3 +27,5 @@ Then build the program from Makefile and run it
 make build && ./final
 ```
 
+It will open the window for you, and in order to start the sorting you have to press any key on the keyboard.
+
