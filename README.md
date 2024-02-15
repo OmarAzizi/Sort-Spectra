@@ -10,11 +10,15 @@ https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/1ff530a2-6861-41fc-84
 
 ### Radix Sort
 
-https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/e97c2064-e6fc-4b96-aa71-f181161c67d9
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/b9be300c-83fe-4381-b5e0-9d2b89319573
 
 ### Quicksort
 
-https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/88ec5652-13a9-4900-9dea-17728c898370
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/c8825835-c24b-4bc5-a912-d58778d5f981
+
+### Heapsort
+
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/21f3f405-9915-4f8a-9860-8b3942a5d76c
 
 ## Usage
 Clone the repository:
