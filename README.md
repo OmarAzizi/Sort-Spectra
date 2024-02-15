@@ -1,6 +1,8 @@
 # Sort-Spectra
 In order to complete this project I used the [SDL](https://www.libsdl.org/) library with C.
 
+![Screenshot_20221206-215850_Instagram](https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/cc86ea9e-0820-4738-8b3f-57b73270fc6f)
+
 ## Demo 
 This is a demo for some algorithms sorting an array of 600 shuffled elements.
 
@@ -37,5 +39,3 @@ It will open the window for you, and in order to start the sorting you have to p
 - 2 on they keyboard for **Radix Sort**
 - 3 on they keyboard for **Quicksort**
 - 4 on they keyboard for **Heapsort**
-
-![Screenshot_20221206-215850_Instagram](https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/cc86ea9e-0820-4738-8b3f-57b73270fc6f)
