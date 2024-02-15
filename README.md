@@ -10,7 +10,7 @@ https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/088928c2-3804-4c96-a6
 
 ### Radix Sort
 
-https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/b9be300c-83fe-4381-b5e0-9d2b89319573
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/799863f7-3459-404c-9e4f-0123d6ecba95
 
 ### Quicksort
 
