@@ -41,12 +41,28 @@ int main() {
         SDL_PollEvent(&event);
         switch (event.type) {
             case SDL_KEYDOWN:
-                isStart = true;
+                switch (event.key.keysym.sym) {
+                    case SDLK_1:
+                        isStart = true;
+                        mergeSort(renderer, arr);
+                        break;
+                    case SDLK_2:
+                        isStart = true;
+                        radixSort(renderer, arr);
+                        break;
+                    case SDLK_3:
+                        isStart = true;
+                        quickSort(renderer, arr, 0, ARRAY_MAX_SIZE - 1);
+                        break;
+                    case SDLK_4:
+                        isStart = true;
+                        heapSort(renderer, arr);
+                        break;
+                }
                 break;
         }
     }
 
-    heapSort(renderer, arr);
     visualize_array(renderer, arr, -1, -1);
     visualize_final(renderer, arr);
 
