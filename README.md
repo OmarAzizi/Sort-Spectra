@@ -31,5 +31,9 @@ Then build the program from Makefile and run it:
 make build && ./final
 ```
 
-It will open the window for you, and in order to start the sorting you have to press any key on the keyboard.
+It will open the window for you, and in order to start the sorting you have to press:
+- 1 on they keyboard for **Mergesort**
+- 2 on they keyboard for **Radix Sort**
+- 3 on they keyboard for **Quicksort**
+- 4 on they keyboard for **Heapsort**
 
