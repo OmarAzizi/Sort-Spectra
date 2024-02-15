@@ -6,7 +6,7 @@ This is a demo for some algorithms sorting 600 elements.
 
 ### Merge Sort
 
-https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/029eee8d-2293-4912-929f-602d9f13332f
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/088928c2-3804-4c96-a641-219a3b467c0b
 
 ### Radix Sort
 
