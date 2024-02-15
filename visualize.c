@@ -35,7 +35,8 @@ int main() {
         
     SDL_RenderClear(renderer);
     
-    radixSort(renderer, arr);
+    heapSort(renderer, arr);
+    visualize_array(renderer, arr, -1, -1);
     visualize_final(renderer, arr);
 
     SDL_Delay(1000);
@@ -66,7 +67,7 @@ void shuffle_array(int arr[]) {
     return;
 }
 
-void visualize_array(SDL_Renderer* renderer, int arr[], int red, int blue) {
+void visualize_array(SDL_Renderer* renderer, int arr[], int red, int green) {
     SDL_Rect rectangle;
     int max_value = ARRAY_MAX_SIZE;
 
@@ -86,14 +87,14 @@ void visualize_array(SDL_Renderer* renderer, int arr[], int red, int blue) {
         rectangle.y = WINDOW_HEIGHT - rectangle.h; // Start from the bottom of the window
         
         // Draw rectangle
-        if (red == i) SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
-        else if (blue == i) SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
+        if ( (red - i) <= 10) SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+        else if (green == i) SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
         else SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+        
 
         SDL_RenderFillRect(renderer, &rectangle);
         // Draw rectangle border
         SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-        SDL_RenderDrawRect(renderer, &rectangle);
     }
     SDL_RenderPresent(renderer);
 }
@@ -122,9 +123,8 @@ void visualize_final(SDL_Renderer* renderer, int arr[]) {
 
         // Draw rectangle border
         SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
-        SDL_RenderDrawRect(renderer, &rectangle);
 
-        SDL_Delay(3);
+        SDL_Delay(2);
         SDL_RenderPresent(renderer);
     }
 }
