@@ -111,8 +111,10 @@ void heapify(SDL_Renderer* renderer, int arr[], int n, int i, int heap_size) {
 void heapSort(SDL_Renderer* renderer, int arr[]) {
     int n = ARRAY_MAX_SIZE;
     // Build heap (rearrange array)
-    for (int i = n / 2 - 1; i >= 0; i--)
+    for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(renderer, arr, n, i, n);
+        visualize_array(renderer, arr, i, n); // Visualize swap
+    }
 
     // One by one extract an element from heap
     for (int i = n - 1; i > 0; i--) {
@@ -136,8 +138,8 @@ int partition(SDL_Renderer* renderer, int arr[], int low, int high) {
         if (arr[j] < pivot) {
             i++;
             swap(&arr[i], &arr[j]);
-            visualize_array(renderer, arr, i, j);
         }
+        visualize_array(renderer, arr, i, j);
     }
     swap(&arr[i + 1], &arr[high]);
     visualize_array(renderer, arr, i + 1, high);
@@ -166,17 +168,22 @@ void countSort(SDL_Renderer* renderer, int arr[], int n, int exp) {
     int i, count[10] = {0};
 
     // Count occurrences of digits
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; i++) {
         count[(arr[i] / exp) % 10]++;
+        visualize_array(renderer, arr, i, -1); // Visualize sorting
+    }
 
     // Cumulative count
-    for (i = 1; i < 10; i++)
+    for (i = 1; i < 10; i++) {
         count[i] += count[i - 1];
+        visualize_array(renderer, arr, i, -1); // Visualize sorting
+    }
 
     // Build output array
     for (i = n - 1; i >= 0; i--) {
         output[count[(arr[i] / exp) % 10] - 1] = arr[i];
         count[(arr[i] / exp) % 10]--;
+        visualize_array(renderer, arr, i, -1); // Visualize sorting
     }
 
     // Copy the output array to arr[], so that arr[] now contains sorted numbers according to current digit
