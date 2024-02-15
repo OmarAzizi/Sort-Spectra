@@ -14,7 +14,7 @@ https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/799863f7-3459-404c-9e
 
 ### Quicksort
 
-https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/c8825835-c24b-4bc5-a912-d58778d5f981
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/38457163-053c-4383-931f-3d61834333f9
 
 ### Heapsort
 
