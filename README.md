@@ -18,9 +18,10 @@ https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/38457163-053c-4383-93
 
 ### Heapsort
 
-https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/21f3f405-9915-4f8a-9860-8b3942a5d76c
+https://github.com/OmarAzizi/Sort-Spectra/assets/110500643/915c0322-4375-4f0c-9e21-035ee2e53820
 
 ## Usage
+
 Clone the repository:
 ```bash
 git clone https://github.com/OmarAzizi/Sort-Spectra.git && cd Sort-Spectra
