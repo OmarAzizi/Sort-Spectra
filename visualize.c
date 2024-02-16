@@ -31,8 +31,6 @@ int main() {
     }
 
     init_array(arr);
-    shuffle_array(arr);
-
     visualize_array(renderer, arr, -1, -1); 
 
     SDL_Event event;
@@ -41,6 +39,7 @@ int main() {
         SDL_PollEvent(&event);
         switch (event.type) {
             case SDL_KEYDOWN:
+                shuffle_array(renderer, arr);
                 switch (event.key.keysym.sym) {
                     case SDLK_1:
                         isStart = true;
@@ -83,11 +82,12 @@ void init_array(int arr[]) {
 }
 
 // Shuffles a sorted array
-void shuffle_array(int arr[]) {
+void shuffle_array(SDL_Renderer* renderer, int arr[]) {
     srand(time(0));
     int randIdx;
 
     for (size_t i = 0; i < ARRAY_MAX_SIZE; ++i) {
+        visualize_array(renderer, arr, -1, -1);
         randIdx = (rand() % ARRAY_MAX_SIZE + 1);
         swap(&arr[i], &arr[randIdx]);
     }
@@ -103,7 +103,7 @@ void visualize_array(SDL_Renderer* renderer, int arr[], int red, int green) {
 
     // Calculate the width of each rectangle
     rectangle.w = (float)WINDOW_WIDTH / ARRAY_MAX_SIZE;
-    
+      
     SDL_RenderClear(renderer);
     for (size_t i = 0; i < ARRAY_MAX_SIZE; ++i) {
         // Scale the height of the rectangle

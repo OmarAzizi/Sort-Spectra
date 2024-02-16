@@ -13,7 +13,7 @@
 #define     ARRAY_SIZE(x) (sizeof(x) / sizeof(x[0]))
 
 void init_array(int[]);
-void shuffle_array(int[]);
+void shuffle_array(SDL_Renderer*, int[]);
 void visualize_array(SDL_Renderer*, int[], int, int);
 void visualize_final(SDL_Renderer*, int[]);
 void swap(int*, int*);
